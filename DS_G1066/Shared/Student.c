@@ -1,5 +1,5 @@
 #include "Student.h"
-Student* createStudent(const char* name, short group)
+Student* createStudent(const char* name, short group, float income)
 {
 	Student* newStudent = NULL;
 	newStudent = (Student*)malloc(sizeof(Student));
@@ -11,6 +11,16 @@ Student* createStudent(const char* name, short group)
 			strcpy_s(newStudent->name, strlen(name) + 1, name);
 		}
 		newStudent->group = group;
+		newStudent->income = income;
 	}
 	return newStudent;
+}
+void deleteStudent(PStudent pStud)
+{
+	if (pStud != NULL)
+	{
+		if (pStud->name != NULL)
+			free(pStud->name);
+		free(pStud);
+	}
 }
