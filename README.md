@@ -1,4 +1,4 @@
-<h1><color>IMPORTANT</color></h1>
+<h1><span style="color: red;">IMPORTANT</span></h1>
 <h2>As you clone the repository change the solution's architecture to x86 (32 bits)</h2>
 <h1><b>Data Structures 2024-2025</b></h1>
 
