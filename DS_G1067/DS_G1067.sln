@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "S01", "S01\S01.vcxproj", "{180653FF-0F5B-4119-8638-98AC5646DF62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A34DA7D9-A573-4C7E-9DA7-AD7E9C73E9DC} = {A34DA7D9-A573-4C7E-9DA7-AD7E9C73E9DC}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "Shared\Shared.vcxproj", "{A34DA7D9-A573-4C7E-9DA7-AD7E9C73E9DC}"
 EndProject
