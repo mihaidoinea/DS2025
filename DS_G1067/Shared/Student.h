@@ -7,14 +7,15 @@
 //{
 //	char* name;
 //} Student, *PStudent;
-
+#pragma pack(2)
 struct _Student
 {
+	float income;
 	short group;
 	char* name;
 };
 typedef struct _Student Student;
 typedef struct _Student* PStudent;
 
-Student* createStudent(const char*, short);
+Student* createStudent(const char*, short, float);
 void deleteStudent(Student*);
