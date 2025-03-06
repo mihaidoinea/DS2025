@@ -7,7 +7,6 @@
 //{
 //	char* name;
 //} Student, *PStudent;
-#pragma pack(2)
 struct _Student
 {
 	float income;
