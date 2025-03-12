@@ -13,3 +13,4 @@ typedef struct _Student* PStudent;
 
 Student* createStudent(const char*, short, float);
 void deleteStudent(PStudent);
+void printStudent(PStudent);
