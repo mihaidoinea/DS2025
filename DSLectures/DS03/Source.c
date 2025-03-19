@@ -20,7 +20,7 @@ void main()
 
 	for (register size_t i = 0; i < strlen(name2); i++)
 	{
-		printf("%c", name2[i]);
+		printf("%c \t", name2[i]);
 		Letter* pletter = (Letter*) & name2[i];
 		pletter->sign = ~pletter->sign;
 		printf("%c\n", name2[i]);
