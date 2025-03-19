@@ -1,4 +1,4 @@
-#include "Student.h"
+#include "Shared.h"
 void main()
 {
 	Student* stud = NULL;

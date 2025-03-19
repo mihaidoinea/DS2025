@@ -130,7 +130,7 @@
     <ClCompile Include="Student.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Student.h" />
+    <ClInclude Include="Shared.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

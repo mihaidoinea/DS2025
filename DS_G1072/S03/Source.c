@@ -1,4 +1,5 @@
-#include "Student.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include "Shared.h"
 #define LINE_SIZE 256
 void main()
 {
@@ -22,7 +23,7 @@ void main()
 			printf("Group: %d\n", group);
 			
 			token = strtok(NULL, delimiter);
-			income = atof(token);
+			income = (float)atof(token);
 			printf("Income: %.2f\n", income);
 		}
 	}
