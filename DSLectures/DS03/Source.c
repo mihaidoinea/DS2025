@@ -1,4 +1,5 @@
 #include "stdio.h"
+#include "string.h"
 typedef struct _Letter
 {
 	short : 5;
@@ -12,10 +13,18 @@ void main()
 	name1 = name2;
 	printf("Name: %s\n", name2);
 	
-	Letter* ptr = &name2[0];
+	Letter* ptr = (Letter*) & name2[0];
 	ptr->sign = 1;
 
 	printf("Name: %s\n", name2);
+
+	for (register size_t i = 0; i < strlen(name2); i++)
+	{
+		printf("%c", name2[i]);
+		Letter* pletter = (Letter*) & name2[i];
+		pletter->sign = ~pletter->sign;
+		printf("%c\n", name2[i]);
+	}
 
 
 }

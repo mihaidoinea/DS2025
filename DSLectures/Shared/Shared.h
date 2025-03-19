@@ -11,7 +11,7 @@ struct _Student
 {
 	Reference reference;
 	char* name;
-	int group;
+	unsigned int group;
 };
 typedef struct _Student Student;
 typedef struct _Student* PStudent;

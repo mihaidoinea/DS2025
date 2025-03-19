@@ -1,4 +1,4 @@
-#include "Student.h"
+#include "Shared.h"
 
 Student* createStudent(const char* name, int group, unsigned short ref)
 {
