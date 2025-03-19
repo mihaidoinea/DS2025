@@ -11,6 +11,10 @@ struct _Student
 typedef struct _Student Student;
 typedef struct _Student* PStudent;
 
+//useful information
 Student* createStudent(const char*, short, float);
 void deleteStudent(PStudent);
 void printStudent(PStudent);
+
+//array functions
+void insertArrayStud(Student*** students, Student* stud, int* noStudents);

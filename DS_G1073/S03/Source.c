@@ -1,28 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "Student.h"
+#include "Shared.h"
 #define LINE_SIZE 256
-
-void insertStud(Student*** students, Student* stud, int* noStudents)
-{
-	Student** buffer = NULL;
-	(*noStudents)++;
-	buffer = (Student**)malloc((*noStudents) * sizeof(Student*));
-	if (buffer != NULL)
-	{
-		memset(buffer, 0, (*noStudents) * sizeof(Student*));
-
-		for (register int i = 0; i < (*noStudents) - 1; i++)
-		{
-			buffer[i] = (*students)[i];
-		}
-		buffer[(*noStudents) - 1] = stud;
-		if (*students != NULL)
-		{
-			free(*students);
-		}
-		*students = buffer;
-	}
-}
 
 void main()
 {
@@ -56,7 +34,7 @@ void main()
 			printStudent(stud);
 
 			//insert element into the array
-			insertStud(&students, stud, &noStudents);
+			insertArrayStud(&students, stud, &noStudents);
 
 			//deleteStudent(stud);
 		}

@@ -127,9 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Student.h" />
+    <ClInclude Include="Shared.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Arrays.c" />
     <ClCompile Include="Student.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
