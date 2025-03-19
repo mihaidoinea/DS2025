@@ -6,15 +6,15 @@ void main()
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
-		char delimiter[] = { ',' };
-		char line[LINE_SIZE];
+		char delimiter[] = { ',','\0' };
+		char buffer[LINE_SIZE];
 		char name[LINE_SIZE];
 		float income;
 		short group;
 		char* token = NULL;
-		while (fgets(line, LINE_SIZE, pFile))
+		while (fgets(buffer, LINE_SIZE, pFile))
 		{
-			token = strtok(line, delimiter);
+			token = strtok(buffer, delimiter);
 			strcpy(name, token);
 			printf("Student: %s\n", name);
 
