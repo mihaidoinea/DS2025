@@ -35,5 +35,7 @@ void main()
 			insertHeadList(&pList, pStud);
 
 		}
+
+		printList(pList);
 	}
 }

@@ -25,3 +25,4 @@ void deleteStudent(PStudent);
 void printStudent(PStudent);
 void insertHeadList(Node**, Student*);
 //void insertHeadList(PNode*, pStud);
+void printList(PNode);

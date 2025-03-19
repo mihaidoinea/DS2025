@@ -1,4 +1,23 @@
 #include "Shared.h"
+//void printList(PNode* node)
+//{
+//	Node* tmp = *node;
+//	while (tmp != NULL)
+//	{
+//		printStudent(tmp->info);
+//		tmp = tmp->next;
+//	}
+//}
+
+void printList(PNode node)
+{
+	while (node != NULL)
+	{
+		printStudent(node->info);
+		node = node->next;
+	}
+}
+
 Node* createNode(Student* pStud)
 {
 	Node* node = NULL;
