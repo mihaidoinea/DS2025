@@ -23,7 +23,8 @@ void main()
 			reference = atoi(token);
 
 			Student* stud = createStudent(name, group, reference);
-
+			printStudent(stud);
+			deleteStudent(stud);
 		}
 	}
 }

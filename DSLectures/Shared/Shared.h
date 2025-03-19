@@ -23,3 +23,5 @@ typedef struct _BitReference
 } BitReference;
 
 Student* createStudent(const char*, int, unsigned short);
+void printStudent(Student* stud);
+void deleteStudent(Student* stud);
