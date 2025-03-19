@@ -1,0 +1,4 @@
+Popa Maria, 1066, 1900.4
+Popescu Andrei, 1075, 2300.2
+Calin Ioana, 1067, 2100.2
+Antonescu Gabriel, 1088, 2500.8
