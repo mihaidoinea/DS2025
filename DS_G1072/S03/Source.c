@@ -3,6 +3,8 @@
 #define LINE_SIZE 256
 void main()
 {
+	Node* pList = NULL;
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -16,15 +18,22 @@ void main()
 		{
 			token = strtok(buffer, delimiter);
 			strcpy(name, token);
-			printf("Student: %s\n", name);
+			//printf("Student: %s\n", name);
 
 			token = strtok(NULL, delimiter);
 			group = atoi(token);
-			printf("Group: %d\n", group);
+			//printf("Group: %d\n", group);
 			
 			token = strtok(NULL, delimiter);
 			income = (float)atof(token);
-			printf("Income: %.2f\n", income);
+			//printf("Income: %.2f\n", income);
+
+			Student* pStud = createStudent(name, group, income);
+			printStudent(pStud);
+			//deleteStudent(pStud);
+
+			insertHeadList(&pList, pStud);
+
 		}
 	}
 }
