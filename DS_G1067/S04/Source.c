@@ -27,8 +27,14 @@ void main()
 
 			insertHeadList(&headList, stud);
 
+			Student* stud1 = createStudent(name, group, income);
+
+			headList = insertTailList(headList, stud1);
+
 		}
 
 		printSimpleList(headList);
+
+		deleteSimpleList(&headList);
 	}
 }

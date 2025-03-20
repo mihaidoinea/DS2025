@@ -19,12 +19,37 @@ void insertHeadList(Node** pHead, Student* pStud)
 		*pHead = node;
 	}	
 }
-Node* insertTailList(Node*, Student*);
-void deleteSimpleList(Node**);
+Node* insertTailList(Node* head, Student* pStud)
+{
+	Node* node = createNode(pStud);
+	if (head == NULL)
+		return node;
+	else
+	{
+		Node* tmp = head;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = node;
+		return head;
+	}
+}
 void printSimpleList(Node* head)
 {
 	while (head != NULL)
 	{
-		printSt
+		printStudent(head->info);
+		head = head->next;
+	}
+}
+
+void deleteSimpleList(Node** pHead)
+{
+	while (*pHead)
+	{
+		Node* tmp = *pHead;
+		(*pHead) = tmp->next;
+
+		deleteStudent(tmp->info);
+		free(tmp);
 	}
 }
