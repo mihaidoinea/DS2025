@@ -3,6 +3,8 @@
 #define LINE_SIZE 256
 void main()
 {
+	Node* headList = NULL;
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -23,6 +25,10 @@ void main()
 
 			Student* stud = createStudent(name, group, income);
 
+			insertHeadList(&headList, stud);
+
 		}
+
+		printSimpleList(headList);
 	}
 }
