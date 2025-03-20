@@ -44,3 +44,21 @@ void insertTailList(Node** head, Student* stud)
 		}
 	}
 }
+void printSimpleList(Node* head)
+{
+	while (head)
+	{
+		printStudent(head->info);
+		head = head->next;
+	}
+}
+void deleteSimpleList(Node** head)
+{
+	while (*head)
+	{
+		Node* tmp = *head;
+		*head = tmp->next;
+		deleteStudent(tmp->info);
+		free(tmp);
+	}
+}

@@ -28,8 +28,14 @@ void main()
 			Student* stud = createStudent(name, group, income);
 
 			listHead = insertHeadList(listHead, stud);
-			//insertTailList(&listHead, stud);
+			
+			Student* stud1 = createStudent(name, group, income);
+
+			insertTailList(&listHead, stud1);
 		}
+		
+		printSimpleList(listHead);
+		deleteSimpleList(&listHead);
 	}
 }
 
