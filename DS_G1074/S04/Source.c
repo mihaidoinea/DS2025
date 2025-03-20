@@ -4,6 +4,8 @@
 
 void main()
 {
+	Node* listHead = NULL;
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -25,6 +27,8 @@ void main()
 
 			Student* stud = createStudent(name, group, income);
 
+			listHead = insertHeadList(listHead, stud);
+			//insertTailList(&listHead, stud);
 		}
 	}
 }
