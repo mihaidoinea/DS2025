@@ -1,6 +1,5 @@
-#include "Shared.h"
-Student* 
-createStudent(const char* name, short group, float income)
+#include "Structures.h"
+Student* createStudent(const char* name, short group, float income)
 {
 	//declare a variable
 	Student* stud = NULL;

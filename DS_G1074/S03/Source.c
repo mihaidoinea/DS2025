@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "Student.h"
+#include "Shared.h"
 #define LINE_SIZE 256
 
 void insertStud(Student*** studs, Student* stud, int* noStud)
