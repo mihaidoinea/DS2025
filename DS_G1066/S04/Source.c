@@ -13,7 +13,6 @@ void main()
 		char delimiter[] = { ',','\0' };
 		while (fgets(buffer, LINE_SIZE, pFile))
 		{
-			printf("Line: %s\n", buffer);
 			token = strtok(buffer, delimiter);
 			strcpy(name, token);
 
