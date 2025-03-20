@@ -28,3 +28,4 @@ void printStudent(PStudent);
 //simple lists functions
 void insertTailList(Node**, Student*);
 void printSimpleList(Node*);
+void deleteStudByName(Node**, const char*);

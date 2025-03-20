@@ -31,6 +31,10 @@ void main()
 		}
 
 		printSimpleList(pHeadList);
+
+		deleteStudByName(&pHeadList, "Popa Robert");
+
+		printSimpleList(pHeadList);
 	}
 }
 

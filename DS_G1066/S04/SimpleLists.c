@@ -39,3 +39,29 @@ void printSimpleList(Node* pHead)
 	else
 		printf("Lista nu contine elemente\n");
 }
+
+void deleteStudByName(Node** pHead, const char* key)
+{
+	if (*pHead != NULL)
+	{
+		Node* tmp = *pHead;
+		if (strcmp(tmp->info->name, key) == 0)
+		{
+			*pHead = tmp->next;
+			deleteStudent(tmp->info);
+			free(tmp);
+		}
+		else
+		{
+			while (tmp->next != NULL 
+				&& strcmp(tmp->next->info->name, key)!=0)
+			{
+				tmp = tmp->next;
+			}
+			Node* aux = tmp->next;
+			tmp->next = aux->next;
+			deleteStudent(aux->info);
+			free(aux);
+		}
+	}
+}
