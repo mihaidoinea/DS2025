@@ -24,3 +24,13 @@ void deleteStudent(PStudent pStud)
 		free(pStud);
 	}
 }
+void printStudent(PStudent pStud)
+{
+	if (pStud != NULL)
+	{
+		if (pStud->name != NULL)
+			printf("Name: %s, ", pStud->name);
+		printf("group: %d, income: %.2f\n",
+			pStud->group, pStud->income);
+	}
+}

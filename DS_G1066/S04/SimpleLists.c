@@ -26,7 +26,16 @@ void insertTailList(Node** pHead, Student* pStud)
 		}
 	}
 }
-void printSimpleList(Node* head)
+void printSimpleList(Node* pHead)
 {
-
+	if (pHead != NULL)
+	{
+		while (pHead != NULL)
+		{
+			printStudent(pHead->info);
+			pHead = pHead->next;
+		}
+	}
+	else
+		printf("Lista nu contine elemente\n");
 }

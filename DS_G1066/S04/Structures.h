@@ -23,6 +23,7 @@ typedef struct _Node*	PNode;
 
 Student* createStudent(const char*, short, float);
 void deleteStudent(PStudent);
+void printStudent(PStudent);
 
 //simple lists functions
 void insertTailList(Node**, Student*);

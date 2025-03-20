@@ -29,6 +29,8 @@ void main()
 			insertTailList(&pHeadList, stud);
 
 		}
+
+		printSimpleList(pHeadList);
 	}
 }
 
