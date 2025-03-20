@@ -4,6 +4,8 @@
 
 void main()
 {
+	Node* pHeadList = NULL;
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -23,6 +25,8 @@ void main()
 			income = (float)atof(token);
 
 			Student* stud = createStudent(name, group, income);
+
+			insertTailList(&pHeadList, stud);
 
 		}
 	}
