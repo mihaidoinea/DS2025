@@ -4,6 +4,9 @@
 
 void main()
 {
+	//list definition
+	Node* headList = NULL;
+
 	Student ** students = NULL;
 	//pointer to pointer to Student - 1 el.
 	//array of pointers to Student
@@ -31,17 +34,25 @@ void main()
 			income = (float)atof(token);
 
 			Student* stud = createStudent(name, group, income);
-			printStudent(stud);
+			//printStudent(stud);
 
 			//insert element into the array
-			insertArrayStud(&students, stud, &noStudents);
+			//insertArrayStud(&students, stud, &noStudents);
 
+			//insert element into a simple linked list
+			insertTailList(&headList, stud);
+			//headList = insertHeadList(headList, stud);
 			//deleteStudent(stud);
 		}
-		for (int i = 0; i < noStudents; i++)
+
+		printSimpleList(headList);
+
+		//headList = deleteSimpleList(headList);
+
+		/*for (int i = 0; i < noStudents; i++)
 		{
 			printStudent(students[i]);
 			deleteStudent(students[i]);
-		}
+		}*/
 	}
 }

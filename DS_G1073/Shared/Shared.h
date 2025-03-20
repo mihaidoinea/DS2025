@@ -11,6 +11,15 @@ struct _Student
 typedef struct _Student Student;
 typedef struct _Student* PStudent;
 
+struct _Node
+{
+	Student* info;
+	struct _Node* next;
+};
+
+typedef struct _Node	Node;
+typedef struct _Node*	PNode;
+
 //useful information
 Student* createStudent(const char*, short, float);
 void deleteStudent(PStudent);
@@ -18,3 +27,9 @@ void printStudent(PStudent);
 
 //array functions
 void insertArrayStud(Student*** students, Student* stud, int* noStudents);
+
+//simple lists function
+void insertTailList(Node**, Student*);
+Node* insertHeadList(Node*, Student*);
+Node* deleteSimpleList(Node*);
+void printSimpleList(Node*);

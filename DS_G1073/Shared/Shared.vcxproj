@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Arrays.c" />
+    <ClCompile Include="SimpleLists.c" />
     <ClCompile Include="Student.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
