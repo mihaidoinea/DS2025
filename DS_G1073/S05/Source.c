@@ -5,7 +5,7 @@
 void main()
 {
 	//list definition
-	Node* headList = NULL;
+	Node* headStack = NULL;
 
 	Student** students = NULL;
 	int noStudents = 0;
@@ -31,8 +31,13 @@ void main()
 			income = (float)atof(token);
 
 			Student* stud = createStudent(name, group, income);
-			printStudent(stud);
+			pushStudentHeadList(&headStack, stud);
 
+			Student* pStud = popStudentHeadList(&headStack);
+			printStudent(pStud);
 		}
+
+		//display stack
+		displayStack(&headStack);
 	}
 }

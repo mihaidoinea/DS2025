@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ListUtils.c" />
     <ClCompile Include="Source.c" />
     <ClCompile Include="Student.c" />
   </ItemGroup>
