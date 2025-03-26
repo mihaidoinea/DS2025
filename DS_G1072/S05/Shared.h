@@ -33,3 +33,4 @@ void pushStudentTailList(Node**, Student*);
 void pushStudentHeadList(Node**, Student*);
 Student* popStudentTailList(Node**);
 Student* popStudentHeadList(Node**);
+void deleteStack(Node**);

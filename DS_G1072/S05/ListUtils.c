@@ -59,13 +59,26 @@ Student* popStudentHeadList(Node** head)
 		Node* tmp = *head;
 		//connecting second(tmp->next) and last(tmp->prev) 
 		//between each other
-		tmp->prev->next = tmp->next;
-		tmp->next->prev = tmp->prev;
-		*head = tmp->next;
-		if ((*head)->next == (*head))
+		if ((*head)->next != (*head))
+		{
+			tmp->prev->next = tmp->next;
+			tmp->next->prev = tmp->prev;
+			*head = tmp->next;
+		}
+		else
 			*head = NULL;
 		free(tmp);
 		
 	}
 	return student;
+}
+
+void deleteStack(Node** head)
+{
+	Student* stud = NULL;
+	while((stud = popStudentHeadList(head)) != NULL)
+	{
+		printStudent(stud);
+		deleteStudent(stud);
+	}
 }

@@ -29,13 +29,11 @@ void main()
 			//printf("Income: %.2f\n", income);
 
 			Student* pStud = createStudent(name, group, income);
-			
-			pushStudentTailList(&stack, pStud);
-			Student* stud = popStudentHeadList(&stack);
-			printStudent(stud);
-			//deleteStudent(stud);
+			pushStudentHeadList(&stack, pStud);
 
 		}
+
+		deleteStack(&stack);	
 
 	}
 }
