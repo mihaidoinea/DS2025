@@ -1,9 +1,16 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Shared.h"
 #define LINE_SIZE 256
+int suma(int x, int y) {
+	int z = 0, r = 2;
+	z = x + y + r;
+	return z;
+}
+
 void main()
 {
-	FILE* pFile = fopen("Data.txt", "r");
+	int result = suma(3, 8);
+	/*FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
 		char delimiter[] = { ',','\0' };
@@ -26,5 +33,5 @@ void main()
 			printStudent(stud);
 			deleteStudent(stud);
 		}
-	}
+	}*/
 }
