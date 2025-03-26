@@ -16,6 +16,7 @@ struct _Node
 {
 	Student* info;
 	struct _Node* next;
+	struct _Node* prev;
 };
 typedef struct _Node	Node;
 typedef struct _Node*	PNode;
@@ -26,3 +27,9 @@ void printStudent(PStudent);
 void insertHeadList(Node**, Student*);
 //void insertHeadList(PNode*, pStud);
 void printList(PNode);
+
+//stack functions
+void pushStudentTailList(Node**, Student*);
+void pushStudentHeadList(Node**, Student*);
+Student* popStudentTailList(Node**);
+Student* popStudentHeadList(Node**);
