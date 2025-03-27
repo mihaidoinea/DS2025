@@ -21,6 +21,9 @@
     <ClCompile Include="Student.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StackUtils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shared.h">

@@ -3,7 +3,7 @@
 #define LINE_SIZE 256
 void main()
 {
-	Node* headList = NULL;
+	Node* topStack = NULL;
 
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
@@ -25,6 +25,17 @@ void main()
 
 			Student* stud = createStudent(name, group, income);
 
+			pushStudent(&topStack, stud);
+			
+			Student* tmp = peekStudent(topStack);
+			printStudent(tmp);
+		}
+		//delete the stack
+		Student* stud = NULL;
+		while (stud = popStudent(&topStack))
+		{
+			printStudent(stud);
+			deleteStudent(stud);
 		}
 	}
 }
