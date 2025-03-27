@@ -4,7 +4,7 @@
 
 void main()
 {
-	Node* listHead = NULL;
+	Node* headStack = NULL;
 
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
@@ -26,6 +26,18 @@ void main()
 			income = (float)atof(token);
 
 			Student* stud = createStudent(name, group, income);
+		
+			pushStudent(&headStack, stud);
+			Student* tmp = peekStudent(headStack);
+			printStudent(tmp);
+		}
+
+		//stack deletion
+		Student* stud = NULL;
+		while (stud = popStudent(&headStack))
+		{
+			printStudent(stud);
+			deleteStudent(stud);
 		}
 		
 	}

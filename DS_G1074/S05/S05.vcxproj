@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.c" />
+    <ClCompile Include="StackUtil.c" />
     <ClCompile Include="Student.c" />
   </ItemGroup>
   <ItemGroup>
