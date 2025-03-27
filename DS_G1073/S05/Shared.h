@@ -40,3 +40,4 @@ void pushStudentHeadList(Node**, Student*);
 void pushStudentTailList(Node**, Student*);
 Student* popStudentHeadList(Node**);
 Student* popStudentTailList(Node**);
+void displayStack(Node**);

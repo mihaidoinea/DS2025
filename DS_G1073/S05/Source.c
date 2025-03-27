@@ -33,10 +33,16 @@ void main()
 			Student* stud = createStudent(name, group, income);
 			pushStudentHeadList(&headStack, stud);
 
-			Student* pStud = popStudentHeadList(&headStack);
-			printStudent(pStud);
+			//Student* pStud = popStudentTailList(&headStack);
+			//printStudent(pStud);
 		}
 
+		Student* stud = NULL;
+		while (stud = popStudentHeadList(&headStack))
+		{
+			printStudent(stud);
+			deleteStudent(stud);
+		}
 		//display stack
 		displayStack(&headStack);
 	}
