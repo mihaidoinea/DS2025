@@ -14,6 +14,7 @@ typedef struct _Student* PStudent;
 
 struct _Node
 {
+	struct _Node* prev;
 	Student* info;
 	struct _Node* next;
 };
@@ -29,3 +30,8 @@ void printStudent(PStudent);
 void insertTailList(Node**, Student*);
 void printSimpleList(Node*);
 void deleteStudByName(Node**, const char*);
+
+//STACK functions
+void pushStudent(Node**, Student*);
+Student* popStudent(Node**);
+Student* peekStudent(Node*);
