@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="QueueUtil.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>

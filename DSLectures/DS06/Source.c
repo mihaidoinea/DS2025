@@ -2,8 +2,13 @@
 #include "Shared.h"
 #define LINE_SIZE 256
 
+void putStudent(Node**, Student*);
+Student* getStudent(Node**);
+
 void main()
 {
+	Node* simplyCircularLinkedTailQueue = NULL;
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -24,6 +29,15 @@ void main()
 			reference = atoi(token);
 
 			Student* stud = createStudent(name, group, reference);
+			//printStudent(stud);
+			//deleteStudent(stud);
+			putStudent(&simplyCircularLinkedTailQueue, stud);
+
+		}
+
+		Student* stud = NULL;
+		while ((stud = getStudent(&simplyCircularLinkedTailQueue)) != NULL)
+		{
 			printStudent(stud);
 			deleteStudent(stud);
 		}

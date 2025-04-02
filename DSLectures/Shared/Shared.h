@@ -25,3 +25,9 @@ typedef struct _BitReference
 Student* createStudent(const char*, int, unsigned short);
 void printStudent(Student* stud);
 void deleteStudent(Student* stud);
+
+struct _Node {
+	Student* info;
+	struct _Node* next;
+};
+typedef struct _Node Node;
