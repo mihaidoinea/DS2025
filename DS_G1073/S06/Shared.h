@@ -41,3 +41,6 @@ void pushStudentTailList(Node**, Student*);
 Student* popStudentHeadList(Node**);
 Student* popStudentTailList(Node**);
 void displayStack(Node**);
+
+//double linked lists
+void insertStudentsSortedByIncome(Node**, Student*);
