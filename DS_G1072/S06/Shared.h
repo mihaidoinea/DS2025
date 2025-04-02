@@ -50,4 +50,4 @@ typedef struct _SparseNode
 //I: the number of elements
 //O: the function returns a matrix of pointers to Student
 Student*** loadMatrix(Student**, int);
-void convertToSparseList(Student***, int, SparseNode*);
+void convertToSparseList(Student***, int, SparseNode**);

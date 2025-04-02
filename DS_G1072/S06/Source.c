@@ -38,15 +38,27 @@ void main()
 		Student*** sparseMatrix = loadMatrix(students, noRowsCols);
 
 		SparseNode* listHead = NULL;
-		convertToSparseList(sparseMatrix, noRowsCols, listHead);
+		convertToSparseList(sparseMatrix, noRowsCols, &listHead);
 
 	}
 }
 
 void convertToSparseList(Student*** sparseMatrix,
-	int noRowsCols, SparseNode* listHead)
+	int noRowsCols, SparseNode** listHead)
 {
-
+	for(int i=0; i<noRowsCols; i++)
+		for (int j = 0; j < noRowsCols; j++)
+		{
+			if (sparseMatrix[i][j] != NULL)
+			{
+				SparseNode* node = (SparseNode*)malloc(sizeof(SparseNode));
+				node->info = sparseMatrix[i][j];
+				node->row = i;
+				node->column = j;
+				node->next = (*listHead);
+				*listHead = node;
+			}
+		}
 }
 
 Student*** loadMatrix(Student** students, int noRowsCols)
