@@ -72,22 +72,12 @@ void insertStudentsSortedByIncome(Node** head, Student* stud)
 			{
 				//process the node
 				ref = ref->next;
-			} while (ref->next != *head && node->info->income > ref->info->income);
-			//insert after the last
-			if (ref->next == *head && node->info->income > ref->info->income)
-			{
-				node->prev = ref;
-				node->next = ref->next;
-				ref->next->prev = node;
-				ref->next = node;
-			}
-			else //insert before node ref
-			{
-				node->next = ref;
-				node->prev = ref->prev;
-				ref->prev->next = node;
-				ref->prev = node;
-			}
+			} while (ref != *head && node->info->income > ref->info->income);
+
+			node->next = ref;
+			node->prev = ref->prev;
+			ref->prev->next = node;
+			ref->prev = node;
 		}
 	}
 }
