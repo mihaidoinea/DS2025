@@ -35,10 +35,10 @@ void pushStudent(Node** topStack, Student* stud)
 }
 Student* popStudent(Node** stack)
 {
-	Student* info = NULL;
-	if (!emptyStack(*stack))
+	Student* info = peekStudent(*stack);
+	if (!info)
 	{
-		info = (*stack)->info;
+		//info = (*stack)->info;
 		Node* tmp = *stack;
 		//only one element
 		if (tmp->next == tmp)
