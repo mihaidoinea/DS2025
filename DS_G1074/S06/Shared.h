@@ -36,3 +36,6 @@ void deleteSimpleList(Node**);
 void pushStudent(Node**, Student*);
 Student* popStudent(Node**);
 Student* peekStudent(Node*);
+
+//doubly linked list
+void convertToSortedDoublyLinkedList(Student**, Node**);
