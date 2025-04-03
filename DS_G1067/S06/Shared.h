@@ -36,3 +36,5 @@ void printSimpleList(Node*);
 void pushStudent(Node**, Student*);
 Student* popStudent(Node**);
 Student* peekStudent(Node*);
+
+void convertArrayToSortedCircularDoublyLinkedList(Student**,Node**);
