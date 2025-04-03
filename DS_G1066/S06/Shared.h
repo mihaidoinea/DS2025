@@ -35,3 +35,5 @@ void deleteStudByName(Node**, const char*);
 void pushStudent(Node**, Student*);
 Student* popStudent(Node**);
 Student* peekStudent(Node*);
+
+void convertArrayToCircularSortedDoublyLinkedList(Student**, Node**);
