@@ -40,7 +40,7 @@ void main()
 			iterator = iterator->next;
 		} while (iterator != listHead);
 
-		deleteList(&listHead);
+		//deleteList(&listHead);
 	}
 }
 
