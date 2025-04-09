@@ -39,6 +39,8 @@ void main()
 			printStudent(iterator->info);
 			iterator = iterator->next;
 		} while (iterator != listHead);
+
+		deleteList(&listHead);
 	}
 }
 
