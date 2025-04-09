@@ -31,3 +31,13 @@ struct _Node {
 	struct _Node* next;
 };
 typedef struct _Node Node;
+
+typedef struct HTable
+{
+	Student** items;
+	int size;
+}HashTable;
+
+void resizeHT(HashTable*);
+void putHashTable(HashTable*, Student*);
+void displayStudents(HashTable);
