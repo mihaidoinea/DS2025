@@ -5,6 +5,8 @@
 void main()
 {
 	FILE* pFile = fopen("Data.txt", "r");
+	
+	PriorityQueue pQueue = { .items = NULL, .position = 0, .size = 0 };
 
 	if (pFile != NULL)
 	{
@@ -25,6 +27,8 @@ void main()
 			reference = atoi(token);
 
 			Student* stud = createStudent(name, group, reference);
+			
+			enqueue(&pQueue, stud);
 		}
 	}
 }

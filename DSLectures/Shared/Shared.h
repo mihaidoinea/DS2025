@@ -41,3 +41,15 @@ typedef struct HTable
 void resizeHT(HashTable*);
 void putHashTable(HashTable*, Student*);
 void displayStudents(HashTable);
+
+
+//Priority Queue definitions
+#define PQUEUE_SIZE 7
+typedef struct PQueue
+{
+	Student** items;
+	int size;
+	int position;
+}PriorityQueue;
+
+void enqueue(struct PQueue*, Student*);
