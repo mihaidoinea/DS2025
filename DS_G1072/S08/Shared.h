@@ -56,3 +56,14 @@ void insertStudentsSortedByIncome(Node**, Student*);
 
 //test functions
 void insertList(SNode**, Student*);
+
+//HashTable definitions
+#define HASH_SIZE 26
+typedef struct HashTable
+{
+	SNode** buckets;
+	int size;
+} HashTable;
+
+void putStudent(HashTable*, Student*);
+Student* getStudent(HashTable, const char*);

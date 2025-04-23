@@ -4,6 +4,8 @@
 
 void main()
 {
+	HashTable hashTable = { .buckets = NULL, .size = 0 };
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -26,6 +28,10 @@ void main()
 
 			Student* stud = createStudent(name, group, income);
 
+			putStudent(&hashTable, stud);
 		}
+
+		Student* value = getStudent(hashTable, "Popa Maria");
+		printStudent(value);
 	}
 }
