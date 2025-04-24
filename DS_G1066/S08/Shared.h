@@ -41,3 +41,14 @@ void convertArrayToCircularSortedDoublyLinkedList(Student**, Node**);
 //TEST functions
 void putNode(Node**, Student*);
 void insertStud(Student***, Student*, int*);
+
+//HashTable definitions
+#define HASH_SIZE 26
+typedef struct _HashTable
+{
+	Node** buckets;
+	int size;
+}HashTable;
+
+void putStudentByKey(HashTable*, Student*);
+Student* getStudentByKey(HashTable, const char*);
