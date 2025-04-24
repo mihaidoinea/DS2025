@@ -34,7 +34,7 @@ void main()
 			printStudent(value);
 		}
 
-		//deleteStudentByKey(hashTable, "popa George");
+		deleteStudentByKey(hashTable, "popa George");
 
 		printHashTable(hashTable);
 	}
