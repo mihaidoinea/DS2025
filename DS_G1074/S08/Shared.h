@@ -39,3 +39,17 @@ Student* peekStudent(Node*);
 
 //doubly linked list
 void convertToSortedDoublyLinkedList(Student**, Node**);
+
+//HashTable definitions
+
+#define HASH_SIZE 26
+typedef struct HashTable
+{
+	Node** buckets;
+	int size;
+}HashTable;
+
+void putStudent(HashTable*, Student*);
+Student* getStudent(HashTable, const char*);
+void deleteStudentByKey(HashTable, const char*);
+void printHashTable(HashTable);
