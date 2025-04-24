@@ -5,7 +5,7 @@ int fHash(const char* key)
 	int position = -1;
 	if (key != NULL)
 	{
-		position = key[0] % HASHT_SIZE;
+		position = (key[0] & 223) % HASHT_SIZE;
 	}
 	return position;
 }
@@ -42,5 +42,19 @@ void putStudentByKey(HashTable* hashTable, Student* stud)
 Student* getStudentByKey(HashTable hashTable, const char* key)
 {
 	Student* value = NULL;
+	//get index
+	int index = fHash(key);
+	if (index > -1)
+	{
+		//access the bucket based on index
+		Node* bucket = hashTable.buckets[index];
+		//search for the key
+		while (bucket)
+		{
+			if (strcmp(bucket->info->name, key) == 0)
+				return bucket->info;
+			bucket = bucket->next;
+		}
+	}
 	return value;
 }

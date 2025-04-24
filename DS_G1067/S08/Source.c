@@ -33,5 +33,11 @@ void main()
 
 			printStudent(value);
 		}
+
+		deleteStudentByKey(hashTable, "popa George");
+
+		Student* value = getStudentByKey(hashTable, "popa George");
+
+		printStudent(value);
 	}
 }
