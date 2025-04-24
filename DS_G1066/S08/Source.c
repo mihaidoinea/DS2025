@@ -32,6 +32,11 @@ void main()
 			Student* value = getStudentByKey(hashTable, stud->name);
 			printStudent(value);
 		}
+
+		//increaseSalaryByKey(hashTable, 14.4f, "popa George");
+		deleteStudentByKey(hashTable, "Popescu Maria");
+
+		printHashTable(hashTable);
 	}
 }
 

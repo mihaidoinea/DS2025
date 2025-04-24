@@ -52,3 +52,5 @@ typedef struct _HashTable
 
 void putStudentByKey(HashTable*, Student*);
 Student* getStudentByKey(HashTable, const char*);
+void deleteStudentByKey(HashTable, const char*);
+void printHashTable(HashTable);
