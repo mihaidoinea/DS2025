@@ -69,3 +69,4 @@ typedef struct HashTable
 void putStudent(HashTable*, Student*);
 Student* getStudent(HashTable, const char*);
 void deleteStud(HashTable, const char*);
+void printHashTable(HashTable);

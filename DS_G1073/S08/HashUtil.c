@@ -81,3 +81,17 @@ void deleteStud(HashTable hashTable, const char* key)
 		}
 	}
 }
+void printHashTable(HashTable hashTable)
+{
+	printf("\n--------------HashTable positions: -------------\n");
+	for (int i = 0; i < HASH_SIZE; i++)
+	{
+		printf("Key %d:\n", i);
+		Node* bucket = hashTable.buckets[i];
+		while (bucket)
+		{
+			printStudent(bucket->info);
+			bucket = bucket->next;
+		}
+	}
+}

@@ -37,8 +37,6 @@ void main()
 
 		deleteStud(hashTable, "Popa Maria");
 
-		Student* value = getStudent(hashTable, "popa Irina");
-
-		printStudent(value);
+		printHashTable(hashTable);
 	}
 }
