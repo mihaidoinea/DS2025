@@ -36,6 +36,9 @@ void main()
 
 		}
 
+		deleteStudentByKey(hashTable, "Antonescu Andrei");
+		deleteStudentByKey(hashTable, "Anghel Laura");
+
 		printHashTable(hashTable);
 	}
 }

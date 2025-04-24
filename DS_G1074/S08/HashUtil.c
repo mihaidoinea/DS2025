@@ -63,10 +63,6 @@ Student* getStudent(HashTable hashTable, const char* key)
 	}
 	return student;
 }
-void deleteStudentByKey(HashTable hashTable, const char* key)
-{
-
-}
 void printHashTable(HashTable hashTable)
 {
 	printf("\n--------------HashTable positions: -------------\n");
@@ -78,6 +74,40 @@ void printHashTable(HashTable hashTable)
 		{
 			printStudent(bucket->info);
 			bucket = bucket->next;
+		}
+	}
+}
+
+void deleteStudentByKey(HashTable hashTable, const char* key)
+{
+	//get position in array
+	int index = fHash(key);
+	if (index > -1 && hashTable.buckets != NULL)
+	{
+		//access the collision list (bucket)
+		Node* bucket = hashTable.buckets[index];
+		//search for the key
+		while (bucket && strcmp(bucket->info->name, key) != 0)
+			bucket = bucket->next;
+		if (bucket != NULL)
+		{
+			if (bucket->next == NULL && bucket->prev == NULL)
+			{
+				hashTable.buckets[index] = NULL;
+			}
+			else
+			{
+				if (bucket->prev)
+					bucket->prev->next = bucket->next;
+				else
+				{
+					hashTable.buckets[index] = bucket->next;
+				}
+				if (bucket->next)
+					bucket->next->prev = bucket->prev;
+			}
+			deleteStudent(bucket->info);
+			free(bucket);
 		}
 	}
 }
