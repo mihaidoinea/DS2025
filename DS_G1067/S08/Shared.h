@@ -38,3 +38,15 @@ Student* popStudent(Node**);
 Student* peekStudent(Node*);
 
 void convertArrayToSortedCircularDoublyLinkedList(Student**,Node**);
+
+//HashTable definitions
+
+#define HASHT_SIZE 26
+typedef struct HashTable
+{
+	Node** buckets;
+	int size;
+}HashTable;
+
+void putStudentByKey(HashTable*, Student*);
+Student* getStudentByKey(HashTable, const char*);
