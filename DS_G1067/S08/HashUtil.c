@@ -9,6 +9,7 @@ int fHash(const char* key)
 	}
 	return position;
 }
+
 Node* createNode(Student* stud)
 {
 	Node* node = malloc(sizeof(Node));
@@ -19,6 +20,7 @@ Node* createNode(Student* stud)
 	}
 	return node;
 }
+
 void putStudentByKey(HashTable* hashTable, Student* stud)
 {
 	if (hashTable->buckets == NULL)
@@ -57,4 +59,19 @@ Student* getStudentByKey(HashTable hashTable, const char* key)
 		}
 	}
 	return value;
+}
+
+void printHashTable(HashTable hashTable)
+{
+	printf("\n--------------HashTable positions: -------------\n");
+	for (int i = 0; i < HASHT_SIZE; i++)
+	{
+		printf("Key %d:\n", i);
+		Node* bucket = hashTable.buckets[i];
+		while (bucket)
+		{
+			printStudent(bucket->info);
+			bucket = bucket->next;
+		}
+	}
 }
