@@ -29,11 +29,13 @@ void main()
 			Student* stud = createStudent(name, group, income);
 
 			putStudent(&hashTable, stud);
+
+			Student* value = getStudent(hashTable, stud->name);
+			printStudent(value);
 		}
 
 		deleteStud(hashTable, "Iancu Andrei");
 
-		Student* value = getStudent(hashTable, "Ionescu Catalin");
-		printStudent(value);
+		printHashTable(hashTable);
 	}
 }
