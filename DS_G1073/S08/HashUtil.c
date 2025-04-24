@@ -4,7 +4,7 @@ int fHash(const char* key)
 	int position = -1;
 	if (key != NULL)
 	{
-		position = key[0] % HASH_SIZE;
+		position = toupper(key[0]) % HASH_SIZE;
 	}
 	return position;
 }
@@ -26,24 +26,58 @@ void putStudent(HashTable* hashTable, Student* stud)
 		memset(hashTable->buckets, 0, sizeof(SNode*) * HASH_SIZE);
 		hashTable->size = HASH_SIZE;
 	}
-	else
+	int index = fHash(stud->name);
+	if (index > -1)
 	{
-		int index = fHash(stud->name);
-		if (index > -1)
+		SNode* node = createNode(stud);
+		if (node != NULL)
 		{
-			SNode* node = createNode(stud);
-			if (node != NULL)
-			{
-				node->next = hashTable->buckets[index];
-				hashTable->buckets[index] = node;
-			}
+			node->next = hashTable->buckets[index];
+			hashTable->buckets[index] = node;
 		}
 	}
 }
 
 Student* getStudent(HashTable hashTable, const char* key)
 {
+	Student* result = NULL;
 	//calculate the index
-	//get the bucket
-	//search for the key
+	int index = fHash(key);
+	if (index > -1 && hashTable.buckets != NULL)
+	{
+		//get the bucket
+		SNode* bucket = hashTable.buckets[index];
+		//search for the key
+		while (bucket != NULL && strcmp(bucket->info->name, key) != 0)
+			bucket = bucket->next;
+		if (bucket != NULL)
+			result = bucket->info;
+	}
+	return result;
+}
+void deleteStud(HashTable hashTable, const char* key)
+{
+	//calculate the index
+	int index = fHash(key);
+	if (index > -1 && hashTable.buckets != NULL)
+	{
+		//get the bucket
+		SNode* bucket = hashTable.buckets[index];
+		SNode* prev = NULL;
+		while (bucket != NULL && strcmp(bucket->info->name, key) != 0)
+		{
+			prev = bucket;
+			bucket = bucket->next;
+		}
+		if (bucket != NULL)
+		{
+			if (prev == NULL)
+				hashTable.buckets[index] = bucket->next;
+			else
+				prev->next = bucket->next;
+
+			deleteStudent(bucket->info);
+			free(bucket);
+		}
+	}
 }

@@ -58,3 +58,27 @@ Student* getStudent(HashTable hashTable, const char* key)
 	}
 	return stud;
 }
+
+void deleteStud(HashTable hashTable, const char* key)
+{
+	int index = fHash(key);
+	if (index > -1 && hashTable.buckets != NULL)
+	{
+		SNode* bucket = hashTable.buckets[index];
+		SNode* prev = NULL;
+		while (bucket != NULL && strcmp(bucket->info->name, key) != 0)
+		{
+			prev = bucket;
+			bucket = bucket->next;
+		}
+		if (bucket != NULL)
+		{
+			if (prev == NULL)
+				hashTable.buckets[index] = bucket->next;
+			else
+				prev->next = bucket->next;
+			deleteStudent(bucket->info);
+			free(bucket);
+		}
+	}
+}

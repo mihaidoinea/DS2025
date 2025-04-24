@@ -2,6 +2,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
+#include "ctype.h"
 struct _Student
 {
 	short group;
@@ -67,3 +68,4 @@ typedef struct HashTable
 
 void putStudent(HashTable*, Student*);
 Student* getStudent(HashTable, const char*);
+void deleteStud(HashTable, const char*);

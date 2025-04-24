@@ -1,20 +1,18 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Shared.h"
 #define LINE_SIZE 256
+#define MAX_STUDENTS 10
 
 void main()
 {
-	HashTable hashTable = { .buckets = NULL, .size = 0 };
-
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
 		char delimiter[] = { ',','\0' };
-		char* token = NULL;
-		float income = 0; int group = 0;
-		char name[LINE_SIZE];
-		char buffer[LINE_SIZE];
-
+		char name[LINE_SIZE], buffer[LINE_SIZE];
+		float income; int group;
+		char* token;
+		int noStud = 0, index =0;
 		while (fgets(buffer, LINE_SIZE, pFile))
 		{
 			token = strtok(buffer, delimiter);
@@ -27,13 +25,7 @@ void main()
 			income = (float)atof(token);
 
 			Student* stud = createStudent(name, group, income);
-
-			putStudent(&hashTable, stud);
+	
 		}
-
-		deleteStud(hashTable, "Iancu Andrei");
-
-		Student* value = getStudent(hashTable, "Ionescu Catalin");
-		printStudent(value);
 	}
 }
