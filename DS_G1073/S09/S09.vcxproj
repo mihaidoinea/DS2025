@@ -130,6 +130,7 @@
     <Text Include="Data.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PQueueUtil.c" />
     <ClCompile Include="Source.c" />
     <ClCompile Include="Student.c" />
   </ItemGroup>

@@ -26,6 +26,9 @@
     <ClCompile Include="Student.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PQueueUtil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shared.h">
