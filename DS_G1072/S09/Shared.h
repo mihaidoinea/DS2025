@@ -69,3 +69,15 @@ void putStudent(HashTable*, Student*);
 Student* getStudent(HashTable, const char*);
 void deleteStud(HashTable, const char*);
 void printHashTable(HashTable);
+
+//PriorityQueue definitions
+#define PQUEUE_SIZE 13
+typedef struct PQueue
+{
+	Student** items;
+	int size;
+	int currentPosition;
+}PQueue;
+
+void enqueue(PQueue*, Student*);
+Student* dequeue(PQueue*);

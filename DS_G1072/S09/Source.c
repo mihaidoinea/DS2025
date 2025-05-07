@@ -5,6 +5,8 @@
 void main()
 {
 
+	PQueue pQueue = { .items = NULL, .size = 0, .currentPosition = -1 };
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -27,7 +29,17 @@ void main()
 
 			Student* stud = createStudent(name, group, income);
 
+			enqueue(&pQueue, stud);
+		
+			for (int i = 0; i < pQueue.currentPosition; i++)
+			{
+				printStudent(pQueue.items[i]);
+			}
+			printf("\n-----------NEXT ITERATION----------------\n");
 		}
+
+		Student* stud = dequeue(&pQueue);
+		
 
 	}
 }
