@@ -33,5 +33,12 @@ void main()
 			for (int i = 0; i < pQueue.currentIndex; i++)
 				printStudent(pQueue.items[i]);
 		}
+
+		printf("\n------------DEQUEING DATA STRUCTURE------------\n");
+		Student* value = NULL;
+		while ((value = dequeue(&pQueue)) != NULL)
+		{
+			printStudent(value);
+		}
 	}
 }

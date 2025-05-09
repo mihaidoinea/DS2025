@@ -63,3 +63,4 @@ typedef struct PQueue
 }PQueue;
 
 void enqueue(PQueue*, Student*);
+Student* dequeue(PQueue*);

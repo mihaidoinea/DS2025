@@ -1,5 +1,43 @@
 #include "Shared.h"
 
+void ReheapDown(PQueue* pQueue, int parentIndex)
+{
+	if (parentIndex < PQUEUE_SIZE)
+	{
+		int leftChildIndex = 2 * parentIndex + 1;
+		int rightChildIndex = 2 * parentIndex + 2;
+		int maxIndex = parentIndex;
+		if (leftChildIndex < pQueue->currentIndex)
+		{
+			if (pQueue->items[maxIndex]->income < pQueue->items[leftChildIndex]->income)
+				maxIndex = leftChildIndex;
+			if (rightChildIndex < pQueue->currentIndex &&
+				pQueue->items[maxIndex]->income < pQueue->items[rightChildIndex]->income)
+				maxIndex = rightChildIndex;
+			if (maxIndex != parentIndex)
+			{
+				Student* aux = pQueue->items[maxIndex];
+				pQueue->items[maxIndex] = pQueue->items[parentIndex];
+				pQueue->items[parentIndex] = aux;
+				ReheapDown(pQueue, maxIndex);
+			}
+		}
+	}
+}
+
+Student* dequeue(PQueue* pQueue)
+{
+	Student* result = NULL;
+	if (pQueue->currentIndex > 0)
+	{
+		result = pQueue->items[0];
+		pQueue->items[0] = pQueue->items[pQueue->currentIndex - 1];
+		pQueue->currentIndex--;
+		ReheapDown(pQueue, 0);
+	}
+	return result;
+}
+
 void ReheapUp(Student** items, int childIndex)
 {
 	if (childIndex > 0)
