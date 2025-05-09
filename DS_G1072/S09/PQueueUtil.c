@@ -1,24 +1,39 @@
 #include "Shared.h"
 
-void ReheapDown(Student** items, int currentIndex)
+void ReheapDown(PQueue* pQueue, int parentIndex)
 {
-	if (currentIndex < PQUEUE_SIZE)
+	if (parentIndex < PQUEUE_SIZE)
 	{
-		int leftD = 2 * currentIndex + 1;
-		int rightD = 2 * currentIndex + 2;
-
+		int leftChildIndex = 2 * parentIndex + 1;
+		int rightChildIndex = 2 * parentIndex + 2;
+		int minIndex = parentIndex;
+		if (leftChildIndex < pQueue->currentPosition)
+		{
+			if (pQueue->items[minIndex]->income > pQueue->items[leftChildIndex]->income)
+				minIndex = leftChildIndex;
+			if (rightChildIndex < pQueue->currentPosition &&
+				pQueue->items[minIndex]->income > pQueue->items[rightChildIndex]->income)
+				minIndex = rightChildIndex;
+			if (minIndex != parentIndex)
+			{
+				Student* aux = pQueue->items[minIndex];
+				pQueue->items[minIndex] = pQueue->items[parentIndex];
+				pQueue->items[parentIndex] = aux;
+				ReheapDown(pQueue, minIndex);
+			}
+		}
 	}
 }
 
 Student* dequeue(PQueue* pQueue)
 {
 	Student* result = NULL;
-	if (pQueue->currentPosition >= 0)
+	if (pQueue->currentPosition > 0)
 	{
 		result = pQueue->items[0];
 		pQueue->items[0] = pQueue->items[pQueue->currentPosition - 1];
-		ReheapDown(pQueue->items, 0);
 		pQueue->currentPosition--;
+		ReheapDown(pQueue, 0);
 	}
 	return result;
 }

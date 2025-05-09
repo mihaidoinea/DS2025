@@ -31,15 +31,18 @@ void main()
 
 			enqueue(&pQueue, stud);
 		
+			printf("\n-----------NEXT ITERATION----------------\n");
+
 			for (int i = 0; i < pQueue.currentPosition; i++)
 			{
 				printStudent(pQueue.items[i]);
 			}
-			printf("\n-----------NEXT ITERATION----------------\n");
 		}
-
-		Student* stud = dequeue(&pQueue);
-		
-
+		printf("\n-----------FINAL----------------\n");
+		Student* stud = NULL;
+		while((stud = dequeue(&pQueue))!= NULL)
+		{
+			printStudent(stud);
+		}
 	}
 }
