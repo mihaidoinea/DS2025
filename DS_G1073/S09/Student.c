@@ -34,9 +34,8 @@ void printStudent(PStudent pStud)
 	if (pStud != NULL)
 	{
 		if (pStud->name != NULL)
-			printf("Name: %s\n", pStud->name);
-		printf("Group: %d\n", pStud->group);
+			printf("Name: %s, ", pStud->name);
+		printf("Group: %d, ", pStud->group);
 		printf("Income: %.2f\n", pStud->income);
 	}
-	printf("\n");
 }

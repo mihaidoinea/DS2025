@@ -36,7 +36,13 @@ void main()
 			{
 				printStudent(pQueue.items[i]);
 			}
+		}
 
+		printf("\n------------DEQUEING THE STRUCTURE---------------\n");
+		Student* stud = NULL;
+		while ((stud = dequeue(&pQueue)) != NULL)
+		{
+			printStudent(stud);
 		}
 	}
 }
