@@ -4,6 +4,8 @@
 #define MAX_STUDENTS 10
 void main()
 {
+	PQueue pQueue = { .items = NULL, .size = 0, .currentIndex = -1 };
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -25,6 +27,18 @@ void main()
 
 			Student* stud = createStudent(name, group, income);
 
+			enqueue(&pQueue, stud);
+
+			printf("\n----------NEXT ITERATION-------------\n");
+			for (int i = 0; i < pQueue.currentIndex; i++)
+				printStudent(pQueue.items[i]);
+		}
+
+		printf("\n-----------DEQUEING DATA STRUCTURES-------------\n");
+		Student* value = NULL;
+		while ((value = dequeue(&pQueue)) != NULL)
+		{
+			printStudent(value);
 		}
 	}
 }

@@ -3,4 +3,4 @@ Ionescu Ioana, 1066, 1230.5
 Dobre Raluca, 1089, 1200.3
 Popa Robert, 1066, 1500.8
 popa George, 1022, 1213.2
-Antonescu Cristian, 1233, 1232.3
+Antonescu Cristian, 1233, 2230.3
