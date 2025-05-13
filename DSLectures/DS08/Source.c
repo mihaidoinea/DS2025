@@ -27,8 +27,20 @@ void main()
 			reference = atoi(token);
 
 			Student* stud = createStudent(name, group, reference);
-			
 			enqueue(&pQueue, stud);
+
+			printf("\n-------------------NEXT ITERATION---------------\n");
+			for (int i = 0; i < pQueue.position; i++)
+			{
+				printStudent(pQueue.items[i]);
+			}
+		}
+
+		printf("\n-----------------DEQUEING DATA STRUCTURES---------------\n");
+		Student* value = NULL;
+		while ((value = dequeue(&pQueue)) != NULL)
+		{
+			printStudent(value);
 		}
 	}
 }
