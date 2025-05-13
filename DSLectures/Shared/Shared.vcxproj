@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BSTUtil.c" />
     <ClCompile Include="HashUtil.c" />
     <ClCompile Include="PQueueUtil.c" />
     <ClCompile Include="Student.c" />

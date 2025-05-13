@@ -65,8 +65,19 @@ typedef struct TreeNode {
 	struct TreeNode** children; // Array of pointers to child nodes
 	int noDescendants;          // Number of children of this node
 } TreeNode;
-
-
 TreeNode* createNode(Student*);
 void insertChild(TreeNode*, int, Student*);
 void printTree(TreeNode*, int);
+
+//BinarySearchTree definitions
+typedef struct BST
+{
+	Student* data;
+	struct BST* left;
+	struct BST* right;
+}BinarySearchTree;
+
+void upsert(BinarySearchTree**, Student*);
+void preOrder(BinarySearchTree*);
+void inOrder(BinarySearchTree*);
+void postOrder(BinarySearchTree*);

@@ -1,5 +1,6 @@
-0, Popescu Maria, 1074, 33900
-33900, Ionescu Ioana, 1066, 1230
-33900, Dobre Raluca, 1089, 1200
-1230, Matei Catalin, 1034, 31300
-1200, Popa Robert, 1066, 1500
+Popescu Maria, 1074, 33900
+Ionescu Ioana, 1066, 34
+Dobre Raluca, 1089, 12
+Matei Catalin, 1034, 31300
+Popa Robert, 1066, 34120
+Ionescu Ioana, 1068, 34

@@ -27,6 +27,9 @@
     <ClCompile Include="TreeUtil.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BSTUtil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shared.h">

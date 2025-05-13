@@ -23,9 +23,10 @@ void printStudent(Student* stud)
 		printf("Name: %s, group: %d\n", stud->name, stud->group);
 		if (stud->reference.extRef >> 15 == 1)
 		{
+			//short uid = stud->reference.extRef >> 8 & 127;
 			short uid = stud->reference.extRef >> 8 & 127;
 			printf("University ref: %d\n", uid);
-			printf("External ref: %d\n", stud->reference.extRef & 255);
+			printf("External ref: %d\n", stud->reference.extRef >> 8);
 		}
 		else
 		{
