@@ -45,7 +45,7 @@ void displayStudents(HashTable);
 
 
 //Priority Queue definitions
-#define PQUEUE_SIZE 7
+#define PQUEUE_SIZE 3
 typedef struct PQueue
 {
 	Student** items;
@@ -54,3 +54,5 @@ typedef struct PQueue
 }PriorityQueue;
 
 void enqueue(struct PQueue*, Student*);
+Student* dequeue(struct PQueue*);
+void changePrio(struct PQueue*, int, int);

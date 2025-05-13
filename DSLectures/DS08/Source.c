@@ -6,7 +6,7 @@ void main()
 {
 	FILE* pFile = fopen("Data.txt", "r");
 	
-	PriorityQueue pQueue = { .items = NULL, .position = 0, .size = 0 };
+	PriorityQueue pQueue = { .items = NULL, .position = -1, .size = 0 };
 
 	if (pFile != NULL)
 	{
@@ -35,6 +35,8 @@ void main()
 				printStudent(pQueue.items[i]);
 			}
 		}
+
+		changePrio(&pQueue, 4, 1090);
 
 		printf("\n-----------------DEQUEING DATA STRUCTURES---------------\n");
 		Student* value = NULL;
