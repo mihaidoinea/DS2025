@@ -56,3 +56,17 @@ typedef struct PQueue
 void enqueue(struct PQueue*, Student*);
 Student* dequeue(struct PQueue*);
 void changePrio(struct PQueue*, int, int);
+
+
+//Generic Trees
+typedef struct TreeNode {
+	Student* data;                   // Data stored in the node
+	struct TreeNode* parent;    // Pointer to the parent node
+	struct TreeNode** children; // Array of pointers to child nodes
+	int noDescendants;          // Number of children of this node
+} TreeNode;
+
+
+TreeNode* createNode(Student*);
+void insertChild(TreeNode*, int, Student*);
+void printTree(TreeNode*, int);

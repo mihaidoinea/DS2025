@@ -4,18 +4,23 @@
 
 void main()
 {
+	TreeNode* root = NULL;
+
 	FILE* pFile = fopen("Data.txt", "r");
 
 	if (pFile != NULL)
 	{
 		char delimiter[] = { ',','\0' };
 		char* token = NULL;
-		unsigned short reference = 0, group = 0;
+		unsigned short reference = 0, group = 0, parentKey =0;
 		char name[LINE_SIZE], buffer[LINE_SIZE];
 
 		while (fgets(buffer, LINE_SIZE, pFile))
 		{
 			token = strtok(buffer, delimiter);
+			parentKey = atoi(token);
+
+			token = strtok(NULL, delimiter);
 			strcpy(name, token);
 
 			token = strtok(NULL, delimiter);
@@ -25,7 +30,12 @@ void main()
 			reference = atoi(token);
 
 			Student* stud = createStudent(name, group, reference);
-			
+			if (root == NULL)
+				root = createNode(stud);
+			else
+				insertChild(root, parentKey, stud);
 		}
+
+		printTree(root, 0);
 	}
 }

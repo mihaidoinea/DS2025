@@ -130,6 +130,7 @@
     <ClCompile Include="HashUtil.c" />
     <ClCompile Include="PQueueUtil.c" />
     <ClCompile Include="Student.c" />
+    <ClCompile Include="TreeUtil.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shared.h" />
