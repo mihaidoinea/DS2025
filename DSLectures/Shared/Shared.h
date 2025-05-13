@@ -81,3 +81,4 @@ void upsert(BinarySearchTree**, Student*);
 void preOrder(BinarySearchTree*);
 void inOrder(BinarySearchTree*);
 void postOrder(BinarySearchTree*);
+void deleteNodeByKey(BinarySearchTree**, unsigned short);

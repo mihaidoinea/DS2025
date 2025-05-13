@@ -26,7 +26,7 @@ void printStudent(Student* stud)
 			//short uid = stud->reference.extRef >> 8 & 127;
 			short uid = stud->reference.extRef >> 8 & 127;
 			printf("University ref: %d\n", uid);
-			printf("External ref: %d\n", stud->reference.extRef >> 8);
+			printf("External ref: %d\n", stud->reference.extRef);
 		}
 		else
 		{

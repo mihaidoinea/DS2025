@@ -44,11 +44,11 @@ void upsert(BinarySearchTree** root, Student* stud)
 		*root = createBSTNode(stud);
 	else
 	{
-		if ((*root)->data->reference.intRef >
-			stud->reference.intRef)
+		if ((*root)->data->reference.extRef >
+			stud->reference.extRef)
 			upsert(&(*root)->left, stud);
-		else if ((*root)->data->reference.intRef <
-			stud->reference.intRef)
+		else if ((*root)->data->reference.extRef <
+			stud->reference.extRef)
 			upsert(&(*root)->right, stud);
 		else
 		{
@@ -56,5 +56,48 @@ void upsert(BinarySearchTree** root, Student* stud)
 			(*root)->data = stud;
 		}
 
+	}
+}
+void deleteFullNode(BinarySearchTree** root, BinarySearchTree** desc)
+{
+	if ((*desc)->right)
+		deleteFullNode(root, &(*desc)->right);
+	else
+	{
+		deleteStudent((*root)->data);
+		(*root)->data = (*desc)->data;
+		BinarySearchTree* tmp = *desc;
+		*desc = tmp->left;
+		free(tmp);
+	}
+}
+void deleteNodeByKey(BinarySearchTree** root, unsigned short key)
+{
+	if (*root != NULL)
+	{
+		if ((*root)->data->reference.extRef > key)
+			deleteNodeByKey(&(*root)->left, key);
+		else if ((*root)->data->reference.extRef < key)
+			deleteNodeByKey(&(*root)->right, key);
+		else
+		{
+			if ((*root)->left == NULL && (*root)->right == NULL)
+			{
+				deleteStudent((*root)->data);
+				free(*root);
+				*root = NULL;
+			}
+			else if ((*root)->left == NULL || (*root)->right == NULL)
+			{
+				BinarySearchTree* tmp = (*root);
+				(*root) = (*root)->left ? (*root)->left : (*root)->right;
+				deleteStudent(tmp->data);
+				free(tmp);
+			}
+			else
+			{
+				deleteFullNode(root, &(*root)->left);
+			}
+		}
 	}
 }

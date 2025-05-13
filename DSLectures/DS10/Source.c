@@ -31,11 +31,18 @@ void main()
 
 			upsert(&root, stud);
 		}
-		printf("\n-----PRE------\n");
-		preOrder(root);
+
+		//printf("\n-----PRE------\n");
+		//preOrder(root);
 		printf("\n-----IN------\n");
 		inOrder(root);
-		printf("\n-----POST------\n");
-		postOrder(root);
+
+		deleteNodeByKey(&root, 33900);
+
+		printf("\n-----IN------\n");
+		inOrder(root);
+
+		//printf("\n-----POST------\n");
+		//postOrder(root);
 	}
 }
