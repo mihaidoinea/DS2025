@@ -4,6 +4,8 @@
 
 void main()
 {
+	BinarySearchTree* root = NULL;
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -29,8 +31,12 @@ void main()
 
 			Student* stud = createStudent(name, group, income, id);
 
+			upsert(&root, stud);
 		}
 
-		
+		printf("\n---------Preorder---------\n");
+		preOrder(root);
+		printf("\n---------Inorder---------\n");
+		inOrder(root);
 	}
 }

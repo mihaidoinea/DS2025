@@ -5,6 +5,7 @@ BinarySearchTree* createBSTNode(Student* stud)
 	if (newNode != NULL)
 	{
 		newNode->data = stud;
+		newNode->bFactor = 0;
 		newNode->left = newNode->right = NULL;
 	}
 	return newNode;
@@ -38,6 +39,66 @@ void postOrder(BinarySearchTree* root)
 	}
 }
 
+int getHeight(BinarySearchTree** root)
+{
+	if (*root == NULL)
+		return 0;
+	else
+	{
+		return 1 + max(getHeight(&(*root)->left), getHeight(&(*root)->right));
+	}
+}
+
+int getBfactor(BinarySearchTree** root)
+{
+	int returnBfactor = getHeight(&(*root)->right) 
+		- getHeight(&(*root)->left);
+	return returnBfactor;
+}
+void rebalance(BinarySearchTree** root)
+{
+	(*root)->bFactor = getBfactor(root);
+	if ((*root)->bFactor == 2) {
+		BinarySearchTree* desc = (*root)->left;
+		if (desc->bFactor == 1)
+		{
+			//right rotation on the pivot	
+		}
+		else
+		{
+			// left rotation on the descendent 
+			// right rotation on the pivot
+		}
+	} 
+	else if ((*root)->bFactor == -2) {
+		BinarySearchTree* desc = (*root)->right;
+		if (desc->bFactor == -1)
+		{
+			//left rotation on the pivot
+			LeftRotation(root);
+		}
+		else
+		{
+			// right rotation on the descendent
+			// left rotaion on the pivot
+		}
+	}
+
+}
+void LeftRotation(BinarySearchTree** root) {
+	BinarySearchTree* desc = (*root)->right;
+	(*root)->right = desc->left;
+	desc->left = *root;
+	*root = desc;
+}
+
+void RightRotation(BinarySearchTree** root) {
+	BinarySearchTree* desc = (*root)->left;
+	(*root)->left = desc->right;
+	desc->right = *root;
+	*root = desc;
+}
+
 void upsert(BinarySearchTree** root, Student* stud)
 {
 	if (*root == NULL)
@@ -55,8 +116,8 @@ void upsert(BinarySearchTree** root, Student* stud)
 			printf("Key already present, updating it!");
 			(*root)->data = stud;
 		}
-
 	}
+	rebalance(root);
 }
 void deleteFullNode(BinarySearchTree** root, BinarySearchTree** desc)
 {

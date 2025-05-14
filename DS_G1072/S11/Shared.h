@@ -87,6 +87,7 @@ Student* dequeue(PQueue*);
 typedef struct BST
 {
 	Student* data;
+	char bFactor;
 	struct BST* left;
 	struct BST* right;
 }BinarySearchTree;

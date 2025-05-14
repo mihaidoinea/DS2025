@@ -37,6 +37,60 @@ void postOrder(BinarySearchTree* root)
 		printStudent(root->data);
 	}
 }
+int getHeight(BinarySearchTree* expectedNode) {
+	if (expectedNode == NULL) return 0;
+	return 1 + max(getHeight(expectedNode->left), getHeight(expectedNode->right));
+}
+void leftRotation(BinarySearchTree** pivot)
+{
+	BinarySearchTree* desc = (*pivot)->right;
+	(*pivot)->right = desc->left;
+	desc->left = (*pivot);
+	(*pivot) = desc;
+}
+
+void rightRotation(BinarySearchTree** pivot)
+{
+	BinarySearchTree* desc = (*pivot)->left;
+	(*pivot)->left = desc->right;
+	desc->right = (*pivot);
+	(*pivot) = desc;
+}
+
+void rebalanceRoot(BinarySearchTree** pivot) {
+	char calculatedBF = getHeight((*pivot)->left) - getHeight((*pivot)->right);
+	(*pivot)->bFactor = calculatedBF;
+	if ((*pivot)->bFactor == +2)
+	{
+		BinarySearchTree* desc = (*pivot)->left;
+		if (desc->bFactor == +1) {
+			//right rotation in pivot
+			rightRotation(pivot);
+		}
+		else if (desc->bFactor == -1) {
+			//
+			leftRotation(&(*pivot)->left);
+			rightRotation(pivot);
+
+		}
+	}
+	else if ((*pivot)->bFactor == -2)
+	{
+		BinarySearchTree* desc = (*pivot)->right;
+		if (desc->bFactor == +1) {
+
+			rightRotation(&(*pivot)->right);
+			leftRotation(pivot);
+		}
+		else if (desc->bFactor == -1) {
+			//left rotation in pivot
+			leftRotation(pivot);
+		}
+
+	}
+}
+
+
 
 void upsert(BinarySearchTree** root, Student* stud)
 {
@@ -44,11 +98,9 @@ void upsert(BinarySearchTree** root, Student* stud)
 		*root = createBSTNode(stud);
 	else
 	{
-		if ((*root)->data->id >
-			stud->id)
+		if ((*root)->data->id > stud->id)
 			upsert(&(*root)->left, stud);
-		else if ((*root)->data->id <
-			stud->id)
+		else if ((*root)->data->id < stud->id)
 			upsert(&(*root)->right, stud);
 		else
 		{
@@ -56,6 +108,7 @@ void upsert(BinarySearchTree** root, Student* stud)
 			(*root)->data = stud;
 		}
 	}
+	rebalanceRoot(root);
 }
 void deleteFullNode(BinarySearchTree** root, BinarySearchTree** desc)
 {
@@ -100,3 +153,4 @@ void deleteNodeByKey(BinarySearchTree** root, unsigned short key)
 		}
 	}
 }
+
