@@ -90,8 +90,6 @@ void rebalanceRoot(BinarySearchTree** pivot) {
 	}
 }
 
-
-
 void upsert(BinarySearchTree** root, Student* stud)
 {
 	if (*root == NULL)
