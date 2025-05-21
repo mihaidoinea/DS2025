@@ -38,6 +38,68 @@ void postOrder(BinarySearchTree* root)
 	}
 }
 
+int getHeight(BinarySearchTree** node) {
+	if (*node == NULL) {
+		return 0;
+	}
+	else {
+		return 1 + max(getHeight(&(*node)->left), getHeight(&(*node)->right));
+	}
+}
+
+BinarySearchTree* leftRotation(BinarySearchTree* pivot) {
+	BinarySearchTree* desc = pivot->right;
+	pivot->right = desc->left;
+	desc->left = pivot;
+	return desc;
+
+}
+BinarySearchTree* rightRotation(BinarySearchTree* pivot) {
+	BinarySearchTree* desc = pivot->left;
+	pivot->left = desc->right;
+	desc->right = pivot;
+	return desc;
+}
+
+
+BinarySearchTree* rebalance(PBinarySearchTree* pivot) {
+	(*pivot)->bFactor = getHeight(&(*pivot)->left) -
+		getHeight(&(*pivot)->right);
+
+	if ((*pivot)->bFactor == -2) {
+		PBinarySearchTree rChildDesc = (*pivot)->right;
+		if ((rChildDesc->bFactor == -1)) {
+			// left rotation in the pivot
+			(*pivot) = leftRotation(*pivot);
+
+		}
+		else {
+			if (rChildDesc->bFactor == 1) {
+				//double rotation
+				(*pivot)->right = rightRotation(rChildDesc);
+				(*pivot) = leftRotation(*pivot);
+			}
+		}
+	}
+	if ((*pivot)->bFactor == 2){
+		PBinarySearchTree lChildDesc = (*pivot)->left;
+		if (lChildDesc->bFactor == -1) {
+			//double rotation
+			(*pivot)->left = leftRotation(lChildDesc);
+			(*pivot) = rightRotation(*pivot);
+		}
+		else {
+			if (lChildDesc->bFactor = 1)
+			{
+				//right rotation in the pivot
+				(*pivot) = rightRotation(*pivot);
+			}
+		}
+	}
+
+	return *pivot;
+}
+
 void upsert(BinarySearchTree** root, Student* stud)
 {
 	if (*root == NULL)
@@ -54,7 +116,10 @@ void upsert(BinarySearchTree** root, Student* stud)
 			(*root)->data = stud;
 		}
 	}
+	*root = rebalance(root);
 }
+
+
 void deleteFullNode(BinarySearchTree** root, BinarySearchTree** desc)
 {
 	if ((*desc)->right)
