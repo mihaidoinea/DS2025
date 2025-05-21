@@ -3,4 +3,4 @@
 6,Ionescu Catalin, 1073, 2110.7
 13,Antonescu Laura, 1066, 2300.2
 20,Matei Calin, 1065, 2312.2
-24,Iancu Andrei, 1045, 2111.2
+14,Iancu Andrei, 1045, 2111.2

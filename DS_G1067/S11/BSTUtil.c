@@ -5,6 +5,7 @@ BinarySearchTree* createBSTNode(Student* stud)
 	if (newNode != NULL)
 	{
 		newNode->data = stud;
+		newNode->bFactor = 0;
 		newNode->left = newNode->right = NULL;
 	}
 	return newNode;
@@ -38,8 +39,54 @@ void postOrder(BinarySearchTree* root)
 	}
 }
 
+int calculInaltime(BinarySearchTree* root) {
+	if (root == NULL) {
+		return 0;
+	}
+	else {
+		return 1 + max(calculInaltime(root->left), calculInaltime(root->right));
+	}
+}
 
-void upsert(BinarySearchTree** root, Student* stud)
+PBinarySearchTree leftRotation(PBinarySearchTree pivot) {
+	PBinarySearchTree descDr = pivot->right;
+	pivot->right = descDr->left;
+	descDr->left = pivot;
+	return descDr;
+}
+PBinarySearchTree rightRotation(PBinarySearchTree pivot) {
+	PBinarySearchTree descSt = pivot->left;
+	pivot->left = descSt->right;
+	descSt->right = pivot;
+	return descSt;
+}
+BinarySearchTree* rebalance(PBinarySearchTree pivot) {
+	pivot->bFactor = calculInaltime(pivot->left) - calculInaltime(pivot->right);
+
+	if (pivot->bFactor == -2)
+	{
+		PBinarySearchTree descDreapta = pivot->right;
+		if (descDreapta->bFactor == -1) //Left rotation in the pivot
+			pivot = leftRotation(pivot);
+		else {
+			pivot->right= rightRotation(descDreapta);
+			pivot = leftRotation(pivot);
+		}
+	}
+	else if (pivot->bFactor == 2)
+	{
+		PBinarySearchTree descStanga = pivot->left;
+		if (descStanga->bFactor == 1) //Right rotation in the pivot
+			pivot = rightRotation(pivot);
+		else {
+			pivot->left= leftRotation(descStanga);
+			pivot = rightRotation(pivot);
+		}
+	}
+	
+	return pivot;
+}
+void upsert(PBinarySearchTree* root, Student* stud)
 {
 	if (*root == NULL)
 		*root = createBSTNode(stud);
@@ -55,6 +102,9 @@ void upsert(BinarySearchTree** root, Student* stud)
 			(*root)->data = stud;
 		}
 	}
+
+	*root = rebalance(*root);
+
 }
 
 

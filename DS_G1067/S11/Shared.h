@@ -90,7 +90,7 @@ typedef struct BST
 	char bFactor;
 	struct BST* left;
 	struct BST* right;
-}BinarySearchTree, * PBinarySearchTree;
+}BinarySearchTree, *PBinarySearchTree;
 
 void upsert(BinarySearchTree**, Student*);
 void preOrder(BinarySearchTree*);
