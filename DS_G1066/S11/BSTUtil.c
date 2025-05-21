@@ -38,8 +38,63 @@ void postOrder(BinarySearchTree* root)
 		printStudent(root->data);
 	}
 }
+char getHeight(BinarySearchTree* pivot) {
+	if (pivot == NULL) {
+		return 0;
+	}
+	else {
+		return (1 + max(getHeight(pivot->right), 
+			getHeight(pivot->left)));
+	}
+}
 
+void LeftRotation(PBinarySearchTree* pivot)
+{
+	BinarySearchTree* desc = (*pivot)->right;
+	(*pivot)->right = desc->left;
+	desc->left = (*pivot);
+	(*pivot) = desc;
+}
 
+void RightRotation(PBinarySearchTree* pivot)
+{
+	BinarySearchTree* desc = (*pivot)->left;
+	(*pivot)->left = desc->right;
+	desc->right = (*pivot);
+	(*pivot) = desc;
+}
+
+void rebalance(PBinarySearchTree* pivot)
+{
+	(*pivot)->bFactor = getHeight((*pivot)->left) 
+		- getHeight((*pivot)->right);
+	if ((*pivot)->bFactor == -2) {
+		BinarySearchTree* descendentRight = (*pivot)->right;
+		if (descendentRight->bFactor == -1) {
+			LeftRotation(pivot);
+		}
+		else
+		{
+			RightRotation(&(*pivot)->right);
+			LeftRotation(pivot);
+		}
+	}
+	else {
+		if ((*pivot)->bFactor == 2) {
+			BinarySearchTree* descendentLeft = (*pivot)->left;
+			if (descendentLeft->bFactor == 1) {
+				//RRpivot
+				RightRotation(pivot);
+			}
+			else
+			{
+				LeftRotation(&(*pivot)->left);
+				RightRotation(pivot);
+			}
+		}
+	}
+	
+}
 void upsert(PBinarySearchTree* root, Student* stud)
 {
 	if (*root == NULL)
@@ -56,6 +111,7 @@ void upsert(PBinarySearchTree* root, Student* stud)
 			(*root)->data = stud;
 		}
 	}
+	rebalance(root);
 }
 
 
