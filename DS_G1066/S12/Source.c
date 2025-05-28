@@ -5,6 +5,7 @@
 void main()
 {
 	FILE* pFile = fopen("Data.txt", "r");
+	Vertex* graph=NULL;
 	if (pFile != NULL)
 	{
 		char delimiter[] = { ',','\0' };
@@ -28,7 +29,31 @@ void main()
 			income = (float)atof(token);
 
 			Student* stud = createStudent(name, group, income, id);
+			insertVertex(&graph, stud);
+		}
+		addEdge(graph, 10, 16);
+		addEdge(graph, 10, 13);
+		addEdge(graph, 10, 24);
+		addEdge(graph, 24, 16);
+		addEdge(graph, 20, 16);
+		addEdge(graph, 20, 6);
+		addEdge(graph, 20, 13);
+		addEdge(graph, 13, 6);
+		addEdge(graph, 13, 16);
 
+		Vertex* tmp = graph;
+		while (tmp)
+		{
+			printStudent(tmp->info);
+			printf("Start Neighbours:\n");
+			Neighbour* tmpN = tmp->adjacencyList;
+			while (tmpN)
+			{
+				printStudent(tmpN->mainVertex->info);
+				tmpN = tmpN->next;
+			}
+			tmp = tmp->next;
+			printf("End Neighbours\n");
 		}
 	}
 }

@@ -97,3 +97,20 @@ void preOrder(BinarySearchTree*);
 void inOrder(BinarySearchTree*);
 void postOrder(BinarySearchTree*);
 void deleteNodeByKey(BinarySearchTree**, unsigned short);
+
+//Graph definitions
+typedef struct Vertex
+{
+	Student* info;
+	struct Neighbour* adjacencyList;
+	struct Vertex* next;
+}Vertex;
+
+typedef struct Neighbour
+{
+	struct Vertex* mainVertex;
+	struct Neighbour* next;
+}Neighbour;
+
+void insertVertex(Vertex**, Student*);
+void addEdge(Vertex*, int, int);
