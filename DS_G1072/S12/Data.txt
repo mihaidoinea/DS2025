@@ -1,5 +1,5 @@
-Popescu Ioana, 1074, 1200.2
-Popa Maria, 1066, 2300.5
-Ionescu Catalin, 1073, 2110.7
-Antonescu Laura, 1066, 2300.2
-Iancu Andrei, 1045, 2111.2
+2, Popescu Ioana, 1074, 1200.2
+12, Popa Maria, 1066, 2300.5
+34, Ionescu Catalin, 1073, 2110.7
+23, Antonescu Laura, 1066, 2300.2
+18, Iancu Andrei, 1045, 2111.2

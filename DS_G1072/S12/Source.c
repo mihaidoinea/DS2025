@@ -4,6 +4,8 @@
 
 void main()
 {
+	Vertex* graph = NULL;
+
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
@@ -29,6 +31,32 @@ void main()
 
 			Student* stud = createStudent(name, group, income, id);
 
+			//O(1)
+			insertVertex(&graph, stud);
 		}
+		
+		addEdge(&graph, 2, 34);
+		addEdge(&graph, 2, 18);
+		addEdge(&graph, 18, 12);
+		addEdge(&graph, 18, 23);
+		addEdge(&graph, 23, 12);
+		addEdge(&graph, 23, 34);
+		addEdge(&graph, 34, 12);
+
+		Vertex* tmp = graph;
+		while (tmp)
+		{
+			printStudent(tmp->info);
+			printf("Start Neighbours:\n");
+			Neighbour* tmpN = tmp->adjacentList;
+			while (tmpN)
+			{
+				printStudent(tmpN->mainVertex->info);
+				tmpN = tmpN->nextNeighbour;
+			}
+			tmp = tmp->next;
+			printf("End Neighbours\n");
+		}
+
 	}
 }
