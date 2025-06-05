@@ -104,6 +104,7 @@ typedef struct Vertex
 	Student* info;
 	struct Neighbour* adjacencyList;
 	struct Vertex* next;
+	short vetex_id;
 }Vertex;
 
 typedef struct Neighbour
@@ -112,5 +113,6 @@ typedef struct Neighbour
 	struct Neighbour* next;
 }Neighbour;
 
-void insertVertex(Vertex**, Student*);
+void insertVertex(Vertex**, Student*,short);
 void addEdge(Vertex*, int, int);
+void convertAdjacencyListToMatrix(Vertex*, short, int***);

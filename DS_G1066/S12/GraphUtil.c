@@ -11,17 +11,42 @@ Vertex* CreateVertex(Student* stud)
 
 	return node;
 }
-void insertVertex(Vertex** graph, Student* stud)
+void insertVertex(Vertex** graph, Student* stud,short vertex_id)
 {
 	Vertex* node=CreateVertex(stud);
 	if (node != NULL)
 	{
 		node->next = *graph;
 		*graph = node;
+		node->vetex_id = vertex_id;
 	}
 
 
 }
+
+void convertAdjacencyListToMatrix(Vertex* graph, short noVertices, int*** matrix) {
+	(*matrix) = malloc(noVertices * sizeof(int*));
+	for (int i = 0; i < noVertices; i++) {
+		(*matrix)[i] = malloc(noVertices * sizeof(int));
+		memset((*matrix)[i], 0, noVertices * sizeof(int));
+	}
+	while (graph)
+	{
+		printf("\n");
+		printStudent(graph->info);
+		printf("Start Neighbours:\n");
+		Neighbour* tmpN = graph->adjacencyList;
+		while (tmpN)
+		{
+			printStudent(tmpN->mainVertex->info);
+			(*matrix)[graph->vetex_id][tmpN->mainVertex->vetex_id] = 1;
+			tmpN = tmpN->next;
+		}
+		graph = graph->next;
+		printf("End Neighbours\n");
+	}
+}
+
 Vertex* findVertex(Vertex* graph, int src) {
 
 	while (graph) {
@@ -56,6 +81,7 @@ void addEdge(Vertex* Graph, int src, int dst)
 		insertNeighbour(&dstV->adjacencyList, srcV);
 	}
 }
+
 
 
 

@@ -13,7 +13,7 @@ void main()
 		float income = 0; int group = 0, id =0;
 		char name[LINE_SIZE];
 		char buffer[LINE_SIZE];
-
+		short noVertices = 0;
 		while (fgets(buffer, LINE_SIZE, pFile))
 		{
 			token = strtok(buffer, delimiter);
@@ -29,7 +29,7 @@ void main()
 			income = (float)atof(token);
 
 			Student* stud = createStudent(name, group, income, id);
-			insertVertex(&graph, stud);
+			insertVertex(&graph, stud, noVertices++);
 		}
 		addEdge(graph, 10, 16);
 		addEdge(graph, 10, 13);
@@ -44,6 +44,7 @@ void main()
 		Vertex* tmp = graph;
 		while (tmp)
 		{
+			printf("\n");
 			printStudent(tmp->info);
 			printf("Start Neighbours:\n");
 			Neighbour* tmpN = tmp->adjacencyList;
@@ -54,6 +55,16 @@ void main()
 			}
 			tmp = tmp->next;
 			printf("End Neighbours\n");
+		}
+		int** matrix = NULL;
+		convertAdjacencyListToMatrix(graph, noVertices, &matrix);
+		for (int i = 0; i < noVertices; i++)
+		{
+			for (int j = 0; j < noVertices; j++)
+			{
+				printf("%3d", matrix[i][j]);
+			}
+			printf("\n");
 		}
 	}
 }
