@@ -19,6 +19,7 @@ void pushStudentTailList(Node** head, Student* pStud)
 		if (*head == NULL)
 		{
 			node->next = node->prev = node;
+			*head = node;
 		}
 		else
 		{
@@ -27,7 +28,6 @@ void pushStudentTailList(Node** head, Student* pStud)
 			node->next->prev = node;
 			node->prev->next = node;
 		}
-		*head = node;
 	}
 }
 
