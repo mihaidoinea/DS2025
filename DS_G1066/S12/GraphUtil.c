@@ -82,6 +82,29 @@ void addEdge(Vertex* Graph, int src, int dst)
 	}
 }
 
+void graphTraversal(int** matrix, short noVertices, short startVertex)
+{
 
+	int last = -1, first = 0;
+	int* queue = (int*)malloc(sizeof(int) * noVertices);
+	int* visited = (int*)malloc(sizeof(int) * noVertices);
+	memset(visited, 0, sizeof(int) * noVertices);
 
+	queue[++last] = startVertex;
+	visited[startVertex] = 1;
+	printf("\n");
+
+	while (last >= first)
+	{
+		for (int i = 0; i < noVertices; i++)
+		{
+			if (visited[i] == 0 && matrix[queue[first]][i] == 1)
+			{
+				queue[++last] = i;
+				visited[i] = 1;
+			}
+		}
+		printf("%3d ", queue[first++]);
+	}
+}
 

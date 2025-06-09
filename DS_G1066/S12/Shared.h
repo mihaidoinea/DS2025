@@ -116,3 +116,4 @@ typedef struct Neighbour
 void insertVertex(Vertex**, Student*,short);
 void addEdge(Vertex*, int, int);
 void convertAdjacencyListToMatrix(Vertex*, short, int***);
+void graphTraversal(int** matrix, short noVertices, short startVertex);

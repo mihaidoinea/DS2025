@@ -66,5 +66,13 @@ void main()
 			}
 			printf("\n");
 		}
+
+		graphTraversal(matrix, noVertices, 0);
+		graphTraversal(matrix, noVertices, 1);
+		graphTraversal(matrix, noVertices, 2);
+		graphTraversal(matrix, noVertices, 3);
+		graphTraversal(matrix, noVertices, 4);
+		graphTraversal(matrix, noVertices, 5);
+
 	}
 }
