@@ -24,7 +24,7 @@ void pushStudentTailList(Node** head, Student* pStud)
 		{
 			node->next = *head;
 			node->prev = (*head)->prev;
-			node->prev->prev = node;
+			node->next->prev = node;
 			node->prev->next = node;
 		}
 		*head = node;
