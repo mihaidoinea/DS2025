@@ -39,8 +39,8 @@ void main()
 
 		deleteStudentByKey(hashTable, "Antonescu Andrei");
 
-		int maxNoCollisions = determineTheMaximumNumberOfCollisionsPerBucket(hashTable);
-		printf("Max. collisions: %d\n",maxNoCollisions);
+		//int maxNoCollisions = determineTheMaximumNumberOfCollisionsPerBucket(hashTable);
+		//printf("Max. collisions: %d\n",maxNoCollisions);
 
 		printHashTable(hashTable);
 	}
