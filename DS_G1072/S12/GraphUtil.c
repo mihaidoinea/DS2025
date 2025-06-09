@@ -73,4 +73,27 @@ void graphTraversal(int** mat, int dim, int startVertex)
 	printf("\n");
 }
 
+void convertAdjacencyListToMatrix(Vertex* graph, short noVertices, int*** matrix) {
+	(*matrix) = malloc(noVertices * sizeof(int*));
+	for (int i = 0; i < noVertices; i++) {
+		(*matrix)[i] = malloc(noVertices * sizeof(int));
+		memset((*matrix)[i], 0, noVertices * sizeof(int));
+	}
+	while (graph)
+	{
+		printf("\n");
+		printStudent(graph->info);
+		printf("Start Neighbours:\n");
+		Neighbour* tmpN = graph->adjacentList;
+		while (tmpN)
+		{
+			printStudent(tmpN->mainVertex->info);
+			(*matrix)[graph->identifier][tmpN->mainVertex->identifier] = 1;
+			tmpN = tmpN->nextNeighbour;
+		}
+		graph = graph->next;
+		printf("End Neighbours\n");
+	}
+}
+
 

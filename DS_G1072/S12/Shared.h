@@ -116,3 +116,4 @@ typedef struct Vertex
 void insertVertex(Vertex**, Student*, short);
 void addEdge(Vertex**, int, int);
 void graphTraversal(int**, int, int);
+void convertAdjacencyListToMatrix(Vertex*, short, int***);
