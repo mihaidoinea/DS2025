@@ -110,8 +110,10 @@ typedef struct Vertex
 	Student* info;
 	struct Neighbour* adjacencyList;
 	struct Vertex* next;
+	short vertexId;
 }Vertex;
 
-void insertVertex(Vertex**, Student*);
-
+void insertVertex(Vertex**, Student*, short);
 void addEdge(Vertex**, int, int);
+void convertAdjacencyListToMatrix(Vertex*, short, int***);
+void graphTraversal(int** matrix, short noVertices, short startVertex);

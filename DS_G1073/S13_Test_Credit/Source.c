@@ -41,6 +41,6 @@ void main()
 
 		//move students from the tree in a simple linked list, storing them in descending order by their id
 		SNode* list = NULL;
-		convertTreeToCircularLinkedList(root, list);
+		//convertTreeToCircularLinkedList(root, list);
 	}
 }
