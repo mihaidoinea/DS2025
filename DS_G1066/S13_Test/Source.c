@@ -39,7 +39,7 @@ void main()
 		printHashTable(hashTable);
 
 		//resize the current hashtable (double the size) if loading factor > 0.2
-		resizeHashTableIfLoadingFactorHigher(hashTable, 0.2);
+		//resizeHashTableIfLoadingFactorHigher(hashTable, 0.2);
 
 		printHashTable(hashTable);
 	}
