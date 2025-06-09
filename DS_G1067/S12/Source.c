@@ -9,6 +9,7 @@ void main()
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
+		short noVertices = 0;
 		char delimiter[] = { ',','\0' };
 		char* token = NULL;
 		float income = 0; int group = 0, id =0;
@@ -30,7 +31,7 @@ void main()
 			income = (float)atof(token);
 
 			Student* stud = createStudent(name, group, income, id);
-			insertVertex(&Graph, stud);
+			insertVertex(&Graph, stud, noVertices++);
 
 			
 		}
@@ -58,5 +59,23 @@ void main()
 			tmp = tmp->next;
 			printf("End Neighbours\n");
 		}
+
+		int** matrix = NULL;
+		convertAdjacencyListToMatrix(Graph, noVertices, &matrix);
+		for (int i = 0; i < noVertices; i++)
+		{
+			for (int j = 0; j < noVertices; j++)
+			{
+				printf("%3d", matrix[i][j]);
+			}
+			printf("\n");
+		}
+
+		graphTraversal(matrix, noVertices, 0);
+		graphTraversal(matrix, noVertices, 1);
+		graphTraversal(matrix, noVertices, 2);
+		graphTraversal(matrix, noVertices, 3);
+		graphTraversal(matrix, noVertices, 4);
+		graphTraversal(matrix, noVertices, 5);
 	}
 }

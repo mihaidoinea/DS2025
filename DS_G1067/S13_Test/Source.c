@@ -38,8 +38,8 @@ void main()
 
 		//deleteStudentByKey(hashTable, "popa George");
 
-		Node* list = moveAllStudentsToList(hashTable, "P");
-		printSimpleList(list);
+		//Node* list = moveAllStudentsToList(hashTable, "P");
+		//printSimpleList(list);
 
 		printHashTable(hashTable);
 	}
