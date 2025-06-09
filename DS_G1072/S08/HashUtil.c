@@ -89,7 +89,7 @@ void printHashTable(HashTable hashTable)
 	for (int i = 0; i < HASH_SIZE; i++)
 	{
 		printf("Key %d:\n", i);
-		Node* bucket = hashTable.buckets[i];
+		SNode* bucket = hashTable.buckets[i];
 		while (bucket)
 		{
 			printStudent(bucket->info);

@@ -41,7 +41,7 @@ void main()
 		// Change the name of a given student (specified by name)
 		// so that the hash table will still preserve its keys.
 
-		changeName(hashTable, "Popa Maria", "Ionescu Maria");
+		//changeName(hashTable, "Popa Maria", "Ionescu Maria");
 
 		printHashTable(hashTable);
 	}

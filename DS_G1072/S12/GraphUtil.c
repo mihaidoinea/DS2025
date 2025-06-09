@@ -1,18 +1,19 @@
 #include "Shared.h"
 
-Vertex* createNode(Student* info) {
+Vertex* createNode(Student* info, short id) {
 	Vertex* newNode = malloc(sizeof(Vertex));
 	if (newNode != NULL) {
 		newNode->info = info;
 		newNode->next = NULL;
 		newNode->adjacentList = NULL;
+		newNode->identifier = id;
 	}
 	return newNode;
 }
 
-void insertVertex(Vertex** graph, Student* info)
+void insertVertex(Vertex** graph, Student* info, short id)
 {
-	Vertex* node = createNode(info);
+	Vertex* node = createNode(info, id);
 	node->next = (*graph);
 	(*graph) = node;
 }
@@ -47,5 +48,29 @@ void addEdge(Vertex** graph,int src, int dst)
 	}
 }
 
+void graphTraversal(int** mat, int dim, int startVertex)
+{
+	int last = -1, first = 0;
+	int* visited = (int*)malloc(sizeof(int) * dim);
+	memset(visited, 0, sizeof(int) * dim);
+	int* queue = (int*)malloc(sizeof(int) * dim);
+
+	visited[startVertex] = 1;
+	queue[++last] = startVertex;
+
+	while (first <= last)
+	{
+		for (int i = 0; i < dim; i++)
+		{
+			if (visited[i] == 0 && mat[queue[first]][i] == 1)
+			{
+				queue[++last] = i;
+				visited[i] = 1;
+			}
+		}
+		printf("%3d", ++queue[first++]);
+	}
+	printf("\n");
+}
 
 

@@ -9,6 +9,7 @@ void main()
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile != NULL)
 	{
+		short index = 0;
 		char delimiter[] = { ',','\0' };
 		char* token = NULL;
 		float income = 0; int group = 0, id =0;
@@ -32,7 +33,7 @@ void main()
 			Student* stud = createStudent(name, group, income, id);
 
 			//O(1)
-			insertVertex(&graph, stud);
+			insertVertex(&graph, stud, index++);
 		}
 		
 		addEdge(&graph, 2, 34);
@@ -57,6 +58,14 @@ void main()
 			tmp = tmp->next;
 			printf("End Neighbours\n");
 		}
+
+
+
+		graphTraversal(graph, index, 0);
+		graphTraversal(graph, index, 1);
+		graphTraversal(graph, index, 2);
+		graphTraversal(graph, index, 3);
+		graphTraversal(graph, index, 4);
 
 	}
 }

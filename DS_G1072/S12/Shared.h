@@ -107,10 +107,12 @@ typedef struct Neighbour
 
 typedef struct Vertex
 {
+	short identifier;
 	Student* info;
 	struct Neighbour* adjacentList;
 	struct Vertex* next;
 }Vertex;
 
-void insertVertex(Vertex**, Student*);
+void insertVertex(Vertex**, Student*, short);
 void addEdge(Vertex**, int, int);
+void graphTraversal(int**, int, int);

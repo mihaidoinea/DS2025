@@ -55,6 +55,19 @@ int getBfactor(BinarySearchTree** root)
 		- getHeight(&(*root)->left);
 	return returnBfactor;
 }
+void LeftRotation(BinarySearchTree** root) {
+	BinarySearchTree* desc = (*root)->right;
+	(*root)->right = desc->left;
+	desc->left = *root;
+	*root = desc;
+}
+
+void RightRotation(BinarySearchTree** root) {
+	BinarySearchTree* desc = (*root)->left;
+	(*root)->left = desc->right;
+	desc->right = *root;
+	*root = desc;
+}
 void rebalance(BinarySearchTree** root)
 {
 	(*root)->bFactor = getBfactor(root);
@@ -85,19 +98,7 @@ void rebalance(BinarySearchTree** root)
 	}
 
 }
-void LeftRotation(BinarySearchTree** root) {
-	BinarySearchTree* desc = (*root)->right;
-	(*root)->right = desc->left;
-	desc->left = *root;
-	*root = desc;
-}
 
-void RightRotation(BinarySearchTree** root) {
-	BinarySearchTree* desc = (*root)->left;
-	(*root)->left = desc->right;
-	desc->right = *root;
-	*root = desc;
-}
 
 void upsert(BinarySearchTree** root, Student* stud)
 {
